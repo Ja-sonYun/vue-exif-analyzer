@@ -1,7 +1,7 @@
 <template>
 	<section>
 		<b-field class="editButtons">
-			<b-button v-if="isEditEnteredEditMode" size="is-small" @click="rebuildAndSetupLink">altered image download</b-button>
+			<b-button v-if="isEditEnteredEditMode" size="is-small" @click="rebuildAndSetupLink">download altered image</b-button>
 			<b-button size="is-small" @click="isEditEnteredEditMode=!isEditEnteredEditMode">edit</b-button>
 		</b-field>
 		<p v-if="JFIF_version">JFIF : {{ JFIF_version }}</p>

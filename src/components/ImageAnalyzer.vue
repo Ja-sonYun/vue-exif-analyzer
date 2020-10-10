@@ -11,7 +11,7 @@
 						</span>
 					</div>
 					<div v-else class="content has-text-centered">
-						<p>Drop your image or click to upload.</p>
+						<p>Drop your image or click to upload.<br>Support only jpeg, jpg format</p>
 					</div>
 				</section>
 			</b-upload>
