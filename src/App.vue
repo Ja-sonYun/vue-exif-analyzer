@@ -1,18 +1,21 @@
 <template>
 	<div id="app">
-		<div id="header">
-			<p class="title">Exif editor</p>
-			<ImageAnalyzer />
-		</div>
+		<Header />
+		<ImageAnalyzer />
+
 		<div v-if="Object.keys(getAnalyzedData).length">
 			<ExifEditor />
 		</div>
+
+		<Footer />
 	</div>
 </template>
 
 <script>
 import ImageAnalyzer from './components/ImageAnalyzer.vue'
 import ExifEditor from './components/ExifEditor.vue'
+import Header from './layout/header.vue';
+import Footer from './layout/footer.vue';
 import { mapGetters } from 'vuex'
 
 export default {
@@ -26,6 +29,8 @@ export default {
 	components: {
 		ImageAnalyzer,
 		ExifEditor,
+		Header,
+		Footer,
 	},
 }
 </script>
@@ -37,8 +42,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
-}
-#header {
-  text-align: center;
 }
 </style>

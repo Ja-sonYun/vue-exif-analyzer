@@ -1,6 +1,29 @@
 <template>
-	<div>
-		<input type="file" @change="pre" id="files">
+	<div v-if="!excuted" id="fileupload">
+		<!-- <input type="file" @change="pre" id="files"> -->
+		<b-field>
+			<b-upload v-model="dropFiles"
+				drag-drop>
+				<section class="section">
+					<div v-if="dropFiles" class="tags">
+						<span class="tag is-primary">
+							{{dropFiles.name}}
+						</span>
+					</div>
+					<div v-else class="content has-text-centered">
+						<p>Drop your image or click to upload.</p>
+					</div>
+				</section>
+			</b-upload>
+		</b-field>
+		<div v-if="dropFiles">
+			<b-button size="is-small" @click="go">
+				Start Analyze!
+			</b-button>
+			<b-button size="is-small" @click="deleteDropFile">
+				Cancel
+			</b-button>
+		</div>
 	</div>
 </template>
 
@@ -15,10 +38,11 @@ export default {
 			'setBinaryData',
 			'setAnalyzedData'
 		]),
-		pre: function(event) {
-			exif_jpeg.pushImage(event.target.files[0]).then(() => {
+		go: function() {
+			exif_jpeg.pushImage(this.dropFiles).then(() => {
 				this.setBinaryData(exif_jpeg.getBinary());
 				this.setAnalyzedData(exif_jpeg.load());
+				this.excuted = true;
 			}).catch(error => {
 				this.$buefy.snackbar.open({
 						duration: 5000,
@@ -35,7 +59,16 @@ export default {
 				})
 			});
 		},
-	}
+		deleteDropFile: function(index) {
+			this.dropFiles = null;
+		}
+	},
+	data() {
+		return {
+			excuted: false,
+			dropFiles: null,
+		}
+	},
 }
 </script>
 
@@ -54,5 +87,9 @@ li {
 }
 a {
   color: #42b983;
+}
+#fileupload {
+  padding-top: 50px;
+  text-align: center;
 }
 </style>
