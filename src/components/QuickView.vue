@@ -39,6 +39,7 @@
 			<p>DateTimeDigitized : {{ DateTimeDigitized }}</p>
 			<b-input v-if="isEditEnteredEditMode" v-model="DateTimeDigitized" class="newValueField"></b-input>
 		</div>
+
 	</section>
 </template>
 
@@ -49,6 +50,7 @@ export default {
 	name: 'QuickView',
 	data: function() {
 		return {
+			updatedImageLink: '',
 			JFIF_version: '',
 			EXIF_version: '',
 			Byte_align: '',
@@ -163,9 +165,12 @@ export default {
 				})
 			}
 
-			let image = new Image();
-			image.src = 'data:image/jpeg;base64,' + btoa(copiedBinary);
-			document.body.appendChild(image);
+			let href = 'data:image/jpeg;base64,' + btoa(copiedBinary);
+			let a = document.createElement("a"); //Create <a>
+			a.href = href; //Image Base64 Goes here
+			a.download = "newImage.jpeg"; //File name Here
+			a.click(); //Downloaded file
+
 		},
 		pushNewValue(copiedBinary, valAddress, orignalValues, val) {
 			if(val > orignalValues.ascii.length) {

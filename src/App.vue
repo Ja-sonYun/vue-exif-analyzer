@@ -1,11 +1,13 @@
 <template>
 	<div id="app">
 		<Header />
-		<ImageAnalyzer />
+			<div id="mainS">
+				<ImageAnalyzer />
 
-		<div v-if="Object.keys(getAnalyzedData).length">
-			<ExifEditor />
-		</div>
+				<div v-if="Object.keys(getAnalyzedData).length">
+					<ExifEditor />
+				</div>
+			</div>
 
 		<Footer />
 	</div>
@@ -42,5 +44,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+  position: relative;
+  min-height: 100vh;
+}
+#mainS {
+  padding-bottom: 50px;
 }
 </style>
