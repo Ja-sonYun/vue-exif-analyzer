@@ -1,30 +1,33 @@
 <template>
-	<div v-if="!excuted" id="fileupload">
-		<!-- <input type="file" @change="pre" id="files"> -->
-		<b-field>
-			<b-upload v-model="dropFiles"
-				drag-drop>
-				<section class="section">
-					<div v-if="dropFiles" class="tags">
-						<span class="tag is-primary">
-							{{dropFiles.name}}
-						</span>
-					</div>
-					<div v-else class="content has-text-centered">
-						<p>Drop your image or click to upload.<br>Support only jpeg, jpg format</p>
-					</div>
-				</section>
-			</b-upload>
-		</b-field>
-		<div v-if="dropFiles">
-			<b-button size="is-small" @click="go">
-				Start Analyze!
-			</b-button>
-			<b-button size="is-small" @click="deleteDropFile">
-				Cancel
-			</b-button>
+	<section>
+		<hr v-if="!excuted"/>
+		<div v-if="!excuted" id="fileupload">
+			<!-- <input type="file" @change="pre" id="files"> -->
+			<b-field>
+				<b-upload v-model="dropFiles"
+					drag-drop>
+					<section class="section">
+						<div v-if="dropFiles" class="tags">
+							<span class="tag is-primary">
+								{{dropFiles.name}}
+							</span>
+						</div>
+						<div v-else class="content has-text-centered">
+							<p>Drop your image or click to upload.<br>Support only jpeg, jpg format</p>
+						</div>
+					</section>
+				</b-upload>
+			</b-field>
+			<div v-if="dropFiles">
+				<b-button size="is-small" @click="go">
+					Start Analyze!
+				</b-button>
+				<b-button size="is-small" @click="deleteDropFile">
+					Cancel
+				</b-button>
+			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script>
