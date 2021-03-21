@@ -1,25 +1,3 @@
 # image-information-changer
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# image-information-changer
+![demo](https://github.com/Ja-sonYun/vue-exif-analyzer/blob/master/sample.gif?raw=true)
