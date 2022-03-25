@@ -3,6 +3,6 @@
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/vue-hex-editor/'
+    ? '/vue-exif-analyzer/'
     : '/'
 }
